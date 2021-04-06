@@ -1,0 +1,38 @@
+The SkyPrinterPlugin is a simple print plugin for OpenJUMP. The original source
+code is by Larry Becker. Michaël Michaud have made the first port to OpenJUMP.
+Thanks to Larry and Michaël!
+
+This code is a simple ant project. You can build, run and jar it with ant. If
+you prefer an IDE for developement you can do this. In NetBeans you have to
+define a "Java Free-Form Project". The NetBeans project directory should not be
+the same as the SkyPrinterPlugin was checked out. You can check out the code to
+SkyPrinterPlugin and save the NetBeans project to SkyPrinterPlugin_NB for
+example.
+In Eclipse this should be similar ;-)
+
+There are the following ant targets:
+clean: make a cleanup (runs befor build)
+build: compile the code to target/classes
+run: runs OpenJUMP with the plugin
+jar: build a JAR file for distribution
+
+To compile and run this code you need some libs from OpenJUMP and the OpenJUMP
+classes himself. The location of this is defined in the build.propertis file.
+In the normal case you have only to set up the "openjump.svn" property to the
+location of the OpenJUMP libs and code. This can simply be done on ant command
+line:
+    ant -Dopenjump.svn=your_very_special_openjump_SVN_path run
+
+If you do not have checked out the OpenJUMP source code for some reasons, you
+have to take care, that in the "openjump.svn" directory a "lib" subdirectory
+available is. In this "lib" directory you need the OpenJUMP JAR file and all the
+additional JAR's. You can simply set "openjump.svn" to your OpenJUMP
+Installation directory. But be aware, you need a OpenJUMP version which was
+released after 15.06.2013! To run the SkyPrinterPlugin with OpenJUMP 1.6.3 is
+impossible!
+
+During developement the SkyPrinterPlugin is loaded via the <extension ...>
+in workbench-properties.xml. So the -properties workbench-properties.xml
+parameter is mandatory. This is done through ant.
+In a normal deployment you have simply place the JAR into the lib/ext directory.
+The JAR is created in the target subdirectory.

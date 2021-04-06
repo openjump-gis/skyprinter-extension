@@ -1,0 +1,68 @@
+# for display continuity sake please use 2 spaces instead of tabs
+
+2014.03.31 Matthias Scholz <ms@jammerhund.de>
+  * PrintPlugin:
+    - attributeSet from printDialog() removed, to get a system print dialog
+      in Windows and not the Java one. The Java one may be confused for the user
+      because it shows the page size and color settings too. But in some
+      environments this setting do not run. Now the user can only change the
+      printer setting via the properties button in the native printer driver
+      setup.
+
+2014.03.16 Matthias Scholz <ms@jammerhund.de>
+  * PrintPlugin:
+    - bugfix in the printdialog: the PDF property fields was not corretly
+      in enabled/disabled state
+  * Introduce a version.numer property in the build stuff
+
+2014.03.02 Matthias Scholz <ms@jammerhund.de>
+  * PrintPlugin:
+    - new scale modes for printing the maximum of the screen view and the full
+      map extent
+
+2014.02.18 Matthias Scholz <ms@jammerhund.de>
+  * Finnish translation added
+  * PrintPlugin:
+    - Papersize A0-A2 added
+    - bugfix in initLayerViewPanel() for "Print Area in Fence" and "Print Area
+      in Selection Bounds" is now correctly printed
+    - better behaviour of the selection and enabled state of the "Print Area in
+      Fence" and "Print Area in Selection Bounds" buttouns in execute()
+  * start working on "maximum size" scale feature
+
+2013-11-22 Matthias Scholz <ms@jammerhund.de>
+  * PrintPlugin:
+    - show the actual map scale in correct sort order in the scale true combobox
+    - in PDF print mode, it makes no sense to print a border, because there is
+      no one! The print border checkbox goes disabled if PDF print is enabled.
+    - now its possible to change the PDF metadata.
+  * build.properties: change java.targetversion to 1.5
+
+2013-11-18 Matthias Scholz <ms@jammerhund.de>
+  * added some point in TODO
+  * added the option for building a specific java class version in build.xml and
+    build.properties
+
+2013-11-16 Matthias Scholz <ms@jammerhund.de>
+  * new build.xml, build.properties for build, run and jar the SkyPrinterPlugin
+    with ant.
+  * documentation in README
+  * some additional changes in conjunction with the ant build
+  * fix typo in german translation
+
+2013-07-23 Matthias Scholz <ms@jammerhund.de>
+  * ShowScaleRenderer integrated
+  * scale true printing integrated
+
+2013-07-18 Matthias Scholz <ms@jammerhund.de>
+  * PrintPlugIn:
+    - pdfCurrentWindow():
+	  - restore the last PDF output directory from Blackboard
+	  - customizalble dateformat for the PDF file name via i18n
+      - add some metadata to the PDF
+    - execute():
+	  - ComboBox with papersize
+	  - orientation switch
+    - printCurrentWindow():
+      - fix PrintServiceLookup problem for *nix systems with the JobName Attribute
+  * NorthArrowRenderer activated

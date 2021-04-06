@@ -1,0 +1,19 @@
+# "-" sign means todo and "+" sign means done :-)
+
++ choise of papersize incl. custom
++ choise orientation
++ why do i get "Warning: Printer not found" if i try to print to a printer (JobName Problem during printservicelookup)
++ i18n
++ northarrow
++ scale true print
+- print copyright on bottom
+- determine automatically the correct unit (mm or inch) for the mediaSize.getY() call and the PDF-page-tooltip
+- progressbar to inform the user about the (sometimes long running) print progress
+- in Linux the printer properties button in the printdialog is disabled
+- center the dialog
+- code cleanup
+  - cleanup Imports
+  - @Overrides...
++ PDF metadata are hardcoded; would be better if the user can set this (see mail from Jukka 17.11.2013)
+- check if expand to fit vertical and scale true makes sense together (see mail from Jukka 17.11.2013)
++ check function of print page border option
