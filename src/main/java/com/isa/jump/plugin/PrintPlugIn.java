@@ -98,8 +98,6 @@ import org.openjump.core.ui.util.ScreenScale;
  */
 public class PrintPlugIn extends AbstractPlugIn {
 
-  I18N I18N_ = I18N.getInstance("print");
-
   /**
    * Name of this Plugin.
    */
@@ -115,55 +113,55 @@ public class PrintPlugIn extends AbstractPlugIn {
   public double UNIT = MILLIMETER;
   //public final int HALF_INCH = 36;
 
-  private final String PRINT_MENU = I18N_.getText("print", "PrintPlugIn.Print");
+  I18N i18n = I18N.getInstance("com.isa.jump.plugin");
+  private final String PRINT_MENU = i18n.get("PrintPlugIn.Print");
   //private final String PRINT_AS_GROUP = "Force";
   //private final String PRINT_AS_RASTER = "Force printing as a raster";
   //private final String PRINT_AS_VECTORS = "Force printing as vectors (no transparency)";
-  private final String REMOVE_TRANSPARENCY = I18N_.getText("print", "PrintPlugIn.Remove-Transparency");
-  private final String REMOVE_BASIC_FILLS = I18N_.getText("print", "PrintPlugIn.Remove-basic-fills");
-  private final String REMOVE_THEME_FILLS = I18N_.getText("print", "PrintPlugIn.Remove-theme-fills");
-  private final String CHANGE_LINE_WIDTH = I18N_.getText("print", "PrintPlugIn.Change-line-width");
-  private final String LINE_WIDTH_PERCENT = I18N_.getText("print", "PrintPlugIn.Line-width-percent");
-  private final String LINE_WIDTH_TOOLTIP = I18N_.getText("print", "PrintPlugIn.Line-width-tooltip"); // 0-300
-  private final String PDF_PAGE_TOOLTIP = I18N_.getText("print", "PrintPlugIn.PDF-page-tooltip");   // MM
-  private final String PRINT_BORDER = I18N_.getText("print", "PrintPlugIn.Print-border");
-  private final String PRINT_OPTIONS = I18N_.getText("print", "PrintPlugIn.Print-options");
-  private final String PRINTER_NOT_FOUND = I18N_.getText("print", "PrintPlugIn.Printer-not-found");
-  private final String RESOLUTION_MULTIPLIER = I18N_.getText("print", "PrintPlugIn.Resolution-multiplier");
-  //	private final String RESOLUTION_MULTIPLIER = "Image Resolution Multiplier";
-  private final String EXPAND_TO_FIT = I18N_.getText("print", "PrintPlugIn.Expand-to-fit");
-  private final String PRINT_AREA_IN_FENCE = I18N_.getText("print", "PrintPlugIn.Print-area-in-fence");
-  private final String PRINT_AREA_IN_BOUNDS = I18N_.getText("print", "PrintPlugIn.Print-area-in-selection-bounds");
+  private final String REMOVE_TRANSPARENCY = i18n.get("PrintPlugIn.Remove-Transparency");
+  private final String REMOVE_BASIC_FILLS = i18n.get("PrintPlugIn.Remove-basic-fills");
+  private final String REMOVE_THEME_FILLS = i18n.get("PrintPlugIn.Remove-theme-fills");
+  private final String CHANGE_LINE_WIDTH = i18n.get("PrintPlugIn.Change-line-width");
+  private final String LINE_WIDTH_PERCENT = i18n.get("PrintPlugIn.Line-width-percent");
+  private final String LINE_WIDTH_TOOLTIP = i18n.get("PrintPlugIn.Line-width-tooltip"); // 0-300
+  private final String PDF_PAGE_TOOLTIP = i18n.get("PrintPlugIn.PDF-page-tooltip");   // MM
+  private final String PRINT_BORDER = i18n.get("PrintPlugIn.Print-border");
+  private final String PRINT_OPTIONS = i18n.get("PrintPlugIn.Print-options");
+  private final String PRINTER_NOT_FOUND = i18n.get("PrintPlugIn.Printer-not-found");
+  private final String RESOLUTION_MULTIPLIER = i18n.get("PrintPlugIn.Resolution-multiplier");
+  private final String EXPAND_TO_FIT = i18n.get("PrintPlugIn.Expand-to-fit");
+  private final String PRINT_AREA_IN_FENCE = i18n.get("PrintPlugIn.Print-area-in-fence");
+  private final String PRINT_AREA_IN_BOUNDS = i18n.get("PrintPlugIn.Print-area-in-selection-bounds");
   //	private final String RESOLUTION_MULTIPLIER_TOOLTIP = "1 - 4";
-  //  private final String OUT_OF_RANGE          = I18N_.getText("print","out of range");
-  private final String FINISHED_MESSAGE = I18N_.getText("print", "PrintPlugIn.Finished-message");
-  private final String PRINT_TO_PDF = I18N_.getText("print", "PrintPlugIn.Print-to-PDF");
-  private final String PDF_META_TITLE = I18N_.getText("print", "PrintPlugIn.PDF-title");
-  private final String PDF_META_SUBJECT = I18N_.getText("print", "PrintPlugIn.PDF-subject");
-  private final String PDF_META_AUTHOR = I18N_.getText("print", "PrintPlugIn.PDF-author");
-  private final String PDF_META_KEYWORDS = I18N_.getText("print", "PrintPlugIn.PDF-keywords");
-  private final String PDF_META_TITLE_TOOLTIP = I18N_.getText("print", "PrintPlugIn.PDF-title-tooltip");
-  private final String PDF_META_SUBJECT_TOOLTIP = I18N_.getText("print", "PrintPlugIn.PDF-subject-tooltip");
-  private final String PDF_META_AUTHOR_TOOLTIP = I18N_.getText("print", "PrintPlugIn.PDF-author-tooltip");
-  private final String PDF_META_KEYWORDS_TOOLTIP = I18N_.getText("print", "PrintPlugIn.PDF-keywords-tooltip");
-  private final String SAVE_PDF = I18N_.getText("print", "PrintPlugIn.Save-PDF");
-  private final String PDF_FILES = I18N_.getText("print", "PrintPlugIn.PDF-files");
-  private final String PDF_PAGE_WIDTH = I18N_.getText("print", "PrintPlugIn.PDF-page-width");
-  private final String PDF_PAGE_HEIGHT = I18N_.getText("print", "PrintPlugIn.PDF-page-height");
-  private final String PAPER_SIZE = I18N_.getText("print", "PrintPlugIn.Paper-size");
-  private final String PAPER_SIZE_TOOLTIP = I18N_.getText("print", "PrintPlugIn.Please-select-the-papersize");
-  private final String PAPER_SIZE_CUSTOM = I18N_.getText("print", "PrintPlugIn.custom-papersize");
-  private final String PORTRAIT = I18N_.getText("print", "PrintPlugIn.Portait");
-  private final String LANDSCAPE = I18N_.getText("print", "PrintPlugIn.Landscape");
-  private final String PORTRAIT_TOOLTIP = I18N_.getText("print", "PrintPlugIn.Portrait-orientation");
-  private final String LANDSCAPE_TOOLTIP = I18N_.getText("print", "PrintPlugIn.Landscape-orientation");
+  //  private final String OUT_OF_RANGE          = i18n.get("print","out of range");
+  private final String FINISHED_MESSAGE = i18n.get("PrintPlugIn.Finished-message");
+  private final String PRINT_TO_PDF = i18n.get("PrintPlugIn.Print-to-PDF");
+  private final String PDF_META_TITLE = i18n.get("PrintPlugIn.PDF-title");
+  private final String PDF_META_SUBJECT = i18n.get("PrintPlugIn.PDF-subject");
+  private final String PDF_META_AUTHOR = i18n.get("PrintPlugIn.PDF-author");
+  private final String PDF_META_KEYWORDS = i18n.get("PrintPlugIn.PDF-keywords");
+  private final String PDF_META_TITLE_TOOLTIP = i18n.get("PrintPlugIn.PDF-title-tooltip");
+  private final String PDF_META_SUBJECT_TOOLTIP = i18n.get("PrintPlugIn.PDF-subject-tooltip");
+  private final String PDF_META_AUTHOR_TOOLTIP = i18n.get("PrintPlugIn.PDF-author-tooltip");
+  private final String PDF_META_KEYWORDS_TOOLTIP = i18n.get("PrintPlugIn.PDF-keywords-tooltip");
+  private final String SAVE_PDF = i18n.get("PrintPlugIn.Save-PDF");
+  private final String PDF_FILES = i18n.get("PrintPlugIn.PDF-files");
+  private final String PDF_PAGE_WIDTH = i18n.get("PrintPlugIn.PDF-page-width");
+  private final String PDF_PAGE_HEIGHT = i18n.get("PrintPlugIn.PDF-page-height");
+  private final String PAPER_SIZE = i18n.get("PrintPlugIn.Paper-size");
+  private final String PAPER_SIZE_TOOLTIP = i18n.get("PrintPlugIn.Please-select-the-papersize");
+  private final String PAPER_SIZE_CUSTOM = i18n.get("PrintPlugIn.custom-papersize");
+  private final String PORTRAIT = i18n.get("PrintPlugIn.Portait");
+  private final String LANDSCAPE = i18n.get("PrintPlugIn.Landscape");
+  private final String PORTRAIT_TOOLTIP = i18n.get("PrintPlugIn.Portrait-orientation");
+  private final String LANDSCAPE_TOOLTIP = i18n.get("PrintPlugIn.Landscape-orientation");
   private final String ORIENTATION_BUTTON_GROUP = "orientationButtonGroup";
-  private final String DATE_FORMAT_STRING = I18N_.getText("print", "PrintPlugIn.dateFormatString");
-  private final String PDF_SUBJECT = I18N_.getText("print", "PrintPlugIn.PDF-Subject");
-  private final String SCALE_PRINT = I18N_.getText("print", "PrintPlugIn.scale");
-  private final String SCALE_PRINT_TOOLTIP = I18N_.getText("print", "PrintPlugIn.scale-true-printing");
-  private final String SCALE_MAXIMUM_VIEW = I18N_.getText("print", "PrintPlugIn.scale-maximum-view");
-  private final String SCALE_FULL_EXTENT = I18N_.getText("print", "PrintPlugIn.scale-full-extent");
+  private final String DATE_FORMAT_STRING = i18n.get("PrintPlugIn.dateFormatString");
+  private final String PDF_SUBJECT = i18n.get("PrintPlugIn.PDF-Subject");
+  private final String SCALE_PRINT = i18n.get("PrintPlugIn.scale");
+  private final String SCALE_PRINT_TOOLTIP = i18n.get("PrintPlugIn.scale-true-printing");
+  private final String SCALE_MAXIMUM_VIEW = i18n.get("PrintPlugIn.scale-maximum-view");
+  private final String SCALE_FULL_EXTENT = i18n.get("PrintPlugIn.scale-full-extent");
 
   private boolean printToPDF = false;
   private PlugInContext pluginContext;
