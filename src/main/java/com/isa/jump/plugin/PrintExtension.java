@@ -9,7 +9,7 @@ import com.vividsolutions.jump.workbench.plugin.PlugInContext;
  */
 public class PrintExtension extends Extension {
 	@Override
-	public void configure(PlugInContext context) throws Exception {
+	public void configure(PlugInContext context) {
         new PrintPlugIn().initialize(context);
 	}
 
