@@ -4,6 +4,8 @@
   <id>distro zip</id>
   <formats>
     <format>zip</format>
+    <!-- for development purposes -->
+    <format>dir</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
   <dependencySets>
